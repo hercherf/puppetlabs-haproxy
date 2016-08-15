@@ -99,7 +99,7 @@ define haproxy::backend (
   # Template uses: $section_name, $ipaddress, $ports, $options
   concat::fragment { "${instance_name}-${section_name}_backend_block":
     order   => $order,
-    target  => $config_file,
+    target  => '/etc/haproxy/haproxy.cfg',
     content => template('haproxy/haproxy_backend_block.erb'),
   }
 

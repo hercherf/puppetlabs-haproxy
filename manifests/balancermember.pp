@@ -110,7 +110,7 @@ define haproxy::balancermember (
   # Template uses $ipaddresses, $server_name, $ports, $option
   concat::fragment { "${instance_name}-${listening_service}_balancermember_${name}":
     order   => $order,
-    target  => $config_file,
+    target  => '/etc/haproxy/haproxy.cfg',
     content => template('haproxy/haproxy_balancermember.erb'),
   }
 }
